@@ -1,0 +1,56 @@
+buildscript {
+	ext {
+		springBootVersion = '1.2.5.RELEASE'
+	}
+	repositories {
+		// NOTE: You should declare only repositories that you need here
+		mavenLocal()
+		mavenCentral()
+		maven { url "http://repo.spring.io/release" }
+		maven { url "http://repo.spring.io/milestone" }
+		maven { url "http://repo.spring.io/snapshot" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'magpie'
+	version =  '1.0.0'
+}
+
+run {
+  systemProperties = System.properties
+}
+
+repositories {
+	// NOTE: You should declare only repositories that you need here
+	mavenLocal()
+	mavenCentral()
+	maven { url "http://repo.spring.io/release" }
+	maven { url "http://repo.spring.io/milestone" }
+	maven { url "http://repo.spring.io/snapshot" }
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	
+	compile(group: 'com.mangofactory', name: 'swagger-springmvc', version: '1.0.2')
+	
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.7'
+	scriptFile = 'gradlew' //define a new name for gradle
+	jarFile = 'gradle-bin.jar' //jar with files to download and invoke Gradle
+	distributionUrl = 'https://services.gradle.org/distributions/gradle-2.7-bin.zip'
+}
