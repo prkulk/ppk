@@ -1,0 +1,6 @@
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.7'
+	scriptFile = 'gradlew' //define a new name for gradle
+	jarFile = 'gradle-bin.jar' //jar with files to download and invoke Gradle
+	distributionUrl = 'https://services.gradle.org/distributions/gradle-2.7-bin.zip'
+}

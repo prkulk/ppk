@@ -36,16 +36,18 @@ repositories {
 	maven { url "http://repo.spring.io/release" }
 	maven { url "http://repo.spring.io/milestone" }
 	maven { url "http://repo.spring.io/snapshot" }
+	maven { url "http://nexus.ecwid.com/content/groups/public" }
 }
 
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter")
-	compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile(group: 'org.springframework.boot', name: 'spring-boot-starter')
+	compile(group: 'org.springframework.boot', name: 'spring-boot-starter-web')
+	compile(group: 'org.springframework.boot', name: 'spring-boot-starter-actuator')
 	
 	compile(group: 'com.mangofactory', name: 'swagger-springmvc', version: '1.0.2')
-	compile(group: 'com.google.guava', name: 'guava', version: '18.0')
-	compile project(':ribbon-consul-client')
+	compile(group: 'com.netflix.ribbon', name: 'ribbon', version: '2.0.0')
+	compile(group: 'com.ecwid.consul', name:'consul-api', version: '1.1.0')
+	compile(group: 'io.reactivex', name: 'rxjava', version: '1.0.12')
 	
-	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile(group:'org.springframework.boot', name: 'spring-boot-starter-test')
 }
