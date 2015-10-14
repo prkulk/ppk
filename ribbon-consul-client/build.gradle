@@ -46,4 +46,5 @@ dependencies {
 	compile(group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3')
 	compile(group: 'com.google.code.gson', name: 'gson', version: '1.7.2')
 	compile(group: 'com.google.guava', name: 'guava', version: '18.0')
+	compile(group: 'io.reactivex', name: 'rxjava', version: '1.0.12')
 }

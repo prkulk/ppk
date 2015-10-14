@@ -45,9 +45,10 @@ dependencies {
 	compile(group: 'org.springframework.boot', name: 'spring-boot-starter-actuator')
 	
 	compile(group: 'com.mangofactory', name: 'swagger-springmvc', version: '1.0.2')
-	compile(group: 'com.netflix.ribbon', name: 'ribbon', version: '2.0.0')
-	compile(group: 'com.ecwid.consul', name:'consul-api', version: '1.1.0')
 	compile(group: 'io.reactivex', name: 'rxjava', version: '1.0.12')
+	compile(group: 'com.google.guava', name: 'guava', version: '18.0')
+	
+	compile project(':ribbon-consul-client')
 	
 	testCompile(group:'org.springframework.boot', name: 'spring-boot-starter-test')
 }
