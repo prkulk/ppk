@@ -1,0 +1,21 @@
+server:
+  contextPath: /configserver
+consul:
+  register:
+    service: 
+      enabled: true
+      name: config-server
+endpoints:
+  health:
+    sensitive: false
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/prkulk/ppk.git
+          username: cc4d17fe267766ce89a73139fa82c0253ff2783f
+          password: 
+          searchPaths: config-client
+management:
+  contextPath: /actuator
