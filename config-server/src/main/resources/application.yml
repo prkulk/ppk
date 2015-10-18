@@ -16,6 +16,9 @@ spring:
           uri: https://github.com/prkulk/ppk.git
           username: cc4d17fe267766ce89a73139fa82c0253ff2783f
           password: 
-          searchPaths: config-client
+          searchPaths: config-*
+  profiles:
+    active: local
+          
 management:
   contextPath: /actuator
