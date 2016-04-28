@@ -15,11 +15,15 @@ import com.wordnik.swagger.annotations.ApiOperation;
 
 @Api(value = "welcome", description = " Expose welcome and name API endpoints", position = 0)
 @RestController
-@RequestMapping("/welcome")
+@RequestMapping
 public class WelcomeController {
 
+	private final WelcomeService welcomeService;
+
 	@Autowired
-	private WelcomeService welcomeService;
+	public WelcomeController(WelcomeService welcomeService) {
+		this.welcomeService = welcomeService;
+	}
 
 	@ApiOperation(value = "Get welcome message text..", notes = "Reads welcome message text from a properties file and returns in a json format")
 	@RequestMapping(value = "/message", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
