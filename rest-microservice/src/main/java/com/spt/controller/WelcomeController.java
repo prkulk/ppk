@@ -19,16 +19,16 @@ import com.wordnik.swagger.annotations.ApiOperation;
 public class WelcomeController {
 
 	@Autowired
-	WelcomeService welcomeService;
+	private WelcomeService welcomeService;
 
-	@RequestMapping(value = "/message", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Get welcome message text..", notes = "Reads welcome message text from a properties file and returns in a json format")
+	@RequestMapping(value = "/message", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Map<String, String> welcomeMessage() {
 		return welcomeService.getWelcomeMessage();
 	}
 
-	@RequestMapping(value = "/name", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Get welcome name..", notes = "Reads welcome name from a properties file and returns in a json format")
+	@RequestMapping(value = "/name", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Map<String, String> welcomeName() {
 		return welcomeService.getWelcomeName();
 	}
