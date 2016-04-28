@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class WelcomeService {
 
+	private final Environment env;
+
 	@Autowired
-	private Environment env;
+	public WelcomeService(Environment env) {
+		this.env = env;
+	}
 
 	public Map<String, String> getWelcomeMessage() {
 		Map<String, String> messageMap = new HashMap<String, String>();
